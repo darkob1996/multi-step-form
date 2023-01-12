@@ -1,0 +1,430 @@
+@import "variables";
+
+@mixin link($color) {
+  background-color: $color;
+  padding: 1.5rem 2.8rem;
+  font-family: inherit;
+  font-weight: $font-weight-bold;
+  color: $white;
+  border-radius: 0.7rem;
+  transition: all 0.3s;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.5rem;
+}
+
+a.button-next {
+  &:link,
+  &:visited {
+    @include link($marine-blue);
+
+    @media only screen and (max-width: $bp-1000) {
+      font-size: 1.3rem;
+    }
+  }
+
+  &:hover {
+    background-color: rgba(2, 41, 90, 0.8);
+  }
+}
+
+a.button-confirm {
+  &:link,
+  &:visited {
+    @include link($purplish-blue);
+    display: none;
+  }
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+a.button-back {
+  &:link,
+  &:visited {
+    color: $cool-gray;
+    font-weight: $font-weight-normal;
+    font-size: 1.6rem;
+    text-decoration: none;
+    transition: all 0.3s;
+
+    @media only screen and (max-width: $bp-1000) {
+      font-size: 1.3rem;
+    }
+  }
+
+  &:hover {
+    color: $marine-blue;
+  }
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.personal {
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 3rem;
+
+    &--item {
+    }
+
+    &--label {
+      display: block;
+      color: $marine-blue;
+      font-size: 1.4rem;
+      font-weight: $font-weight-normal;
+      margin-bottom: 0.7rem;
+    }
+
+    &--input {
+      width: 100%;
+      border-radius: 1rem;
+      border: 1px solid $light-gray;
+      padding: 1.3rem 1rem;
+      font-size: calc(0.7rem + 0.6vw);
+      font-family: inherit;
+
+      &::-webkit-input-placeholder {
+        color: $cool-gray;
+      }
+
+      &:focus {
+        outline: 1px solid $purplish-blue;
+      }
+    }
+
+    &--input[type="email"]:invalid {
+      outline: 1px solid red;
+    }
+  }
+}
+
+.options__option {
+  border: 1px solid $light-gray;
+  border-radius: 1rem;
+  padding: 2rem;
+  flex-basis: 33.3333334%;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    border: 1px solid $purplish-blue;
+  }
+
+  @media only screen and (max-width: $bp-800) {
+    padding: 1rem;
+  }
+
+  @media only screen and (max-width: $bp-600) {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    align-items: center;
+    grid-column-gap: 1rem;
+  }
+
+  &--active {
+    background-color: $alabaster;
+    border: 1px solid $purplish-blue;
+  }
+
+  &--img {
+    margin-bottom: 3rem;
+
+    @media only screen and (max-width: $bp-800) {
+      width: 3rem;
+    }
+
+    @media only screen and (max-width: $bp-600) {
+      grid-column: 1 / 2;
+      grid-row: 1 / span 2;
+      margin-bottom: 0;
+    }
+  }
+
+  &--heading {
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    color: $marine-blue;
+    font-weight: $font-weight-bold;
+
+    @media only screen and (max-width: $bp-800) {
+      font-size: 1.4rem;
+    }
+
+    @media only screen and (max-width: $bp-600) {
+      grid-column: 2 / 3;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  &--paragraph {
+    color: $cool-gray;
+    font-size: 1.4rem;
+
+    @media only screen and (max-width: $bp-800) {
+      font-size: 1rem;
+    }
+
+    @media only screen and (max-width: $bp-600) {
+      grid-column: 2 / 3;
+    }
+  }
+
+  &--yearly {
+    font-size: 1.3rem;
+    margin-top: 0.5rem;
+
+    @media only screen and (max-width: $bp-600) {
+      font-size: 1rem;
+      grid-column: 2 / 3;
+    }
+  }
+}
+
+.add-on {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  border: 1px solid $light-gray;
+  border-radius: 0.8rem;
+  padding: 1.8rem;
+  cursor: pointer;
+
+  &:hover {
+    border: 1px solid $purplish-blue;
+  }
+
+  &--active {
+    background-color: $alabaster;
+    border: 1px solid $purplish-blue;
+  }
+
+  &__img-container {
+    background-color: $white;
+    border: 1px solid $light-gray;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &--active &__img-container {
+    background-color: $purplish-blue;
+    border: 1px solid transparent;
+  }
+
+  &__icon {
+  }
+
+  &__description {
+    margin-right: auto;
+  }
+
+  &__heading {
+    margin-bottom: 0.7rem;
+    font-size: 1.6rem;
+    color: $marine-blue;
+    font-weight: $font-weight-bold;
+
+    @media only screen and (max-width: $bp-800) {
+      font-size: 1.4rem;
+    }
+  }
+
+  &__paragraph {
+    font-size: 1.4rem;
+    color: $cool-gray;
+    font-weight: $font-weight-normal;
+
+    @media only screen and (max-width: $bp-800) {
+      font-size: 1.2rem;
+    }
+  }
+
+  &__price {
+    font-size: 1.4rem;
+    color: $purplish-blue;
+    font-weight: $font-weight-normal;
+
+    @media only screen and (max-width: $bp-800) {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.finishing-up {
+  @media only screen and (max-width: $bp-800) {
+    padding-right: 1.5rem;
+  }
+
+  &__container {
+    margin-top: 3rem;
+  }
+
+  &__details {
+    background-color: $alabaster;
+    border-radius: 1rem;
+    padding: 2rem;
+  }
+
+  &__info {
+    border-bottom: 1px solid $light-gray;
+    padding-bottom: 2rem;
+    display: flex;
+    align-items: center;
+
+    &--type-container {
+      margin-right: auto;
+    }
+  }
+
+  &__heading {
+    margin-bottom: 1rem;
+
+    @media only screen and (max-width: $bp-800) {
+      font-size: 1.6rem;
+    }
+
+    @media only screen and (max-width: $bp-600) {
+      font-size: 1.4rem;
+    }
+  }
+
+  &__type {
+    color: $marine-blue;
+  }
+
+  &__plan {
+    color: $marine-blue;
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      text-decoration: none;
+      color: $cool-gray;
+      border-bottom: 1px solid currentColor;
+      grid-column: 1 / 2;
+      transition: all 0.2s;
+
+      @media only screen and (max-width: $bp-800) {
+        font-size: 1.4rem;
+      }
+
+      @media only screen and (max-width: $bp-600) {
+        font-size: 1.2rem;
+      }
+    }
+
+    &:hover {
+      color: $purplish-blue;
+    }
+  }
+
+  &__price {
+    color: $marine-blue;
+
+    @media only screen and (max-width: $bp-800) {
+      font-size: 1.4rem;
+    }
+
+    @media only screen and (max-width: $bp-600) {
+      font-size: 1.2rem;
+    }
+  }
+
+  &__additional {
+    padding-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr min-content;
+    grid-row-gap: 2rem;
+
+    &-paragraph {
+      color: $cool-gray;
+      font-weight: $font-weight-normal;
+
+      @media only screen and (max-width: $bp-800) {
+        font-size: 1.35rem;
+      }
+
+      @media only screen and (max-width: $bp-600) {
+        font-size: 1.2rem;
+      }
+    }
+
+    &-price {
+      color: $marine-blue;
+      font-weight: $font-weight-normal;
+      font-size: 1.4rem;
+
+      @media only screen and (max-width: $bp-800) {
+        font-size: 1.2rem;
+      }
+
+      @media only screen and (max-width: $bp-600) {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  &__total {
+    padding: 2rem;
+    color: $cool-gray;
+    display: flex;
+    justify-content: space-between;
+
+    @media only screen and (max-width: $bp-800) {
+      font-size: 1.5rem;
+    }
+
+    @media only screen and (max-width: $bp-600) {
+      font-size: 1.3rem;
+    }
+
+    span {
+      color: $purplish-blue;
+      font-weight: $font-weight-extra-bold;
+      font-size: 1.8rem;
+
+      @media only screen and (max-width: $bp-800) {
+        font-size: 1.5rem;
+      }
+
+      @media only screen and (max-width: $bp-600) {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+.thank-you {
+  height: 100%;
+
+  display: grid;
+  place-items: center;
+  padding-inline: 8rem;
+
+  @media only screen and (max-width: $bp-600) {
+    padding-inline: 2rem;
+  }
+
+  &__container {
+    text-align: center;
+
+    display: grid;
+    grid-row-gap: 1rem;
+    justify-items: center;
+  }
+
+  &__img {
+    margin-bottom: 3rem;
+  }
+}

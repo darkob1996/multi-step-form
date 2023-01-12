@@ -1,0 +1,81 @@
+@import "variables";
+
+html {
+  font-size: 62.5%;
+
+  @media only screen and (max-width: $bp-1000) {
+    font-size: 56.25%;
+  }
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: $font-family;
+  font-weight: $font-weight-normal;
+}
+
+.heading-main {
+  font-size: calc(1rem + 1.7vw);
+  font-weight: $font-weight-extra-bold;
+  color: $marine-blue;
+  letter-spacing: 0.1rem;
+}
+
+.heading-aside {
+  text-transform: uppercase;
+  color: $white;
+  font-size: calc(0.7rem + 0.4vw);
+  letter-spacing: 0.1rem;
+  font-weight: $font-weight-extra-bold;
+
+  @media only screen and (max-width: $bp-1000) {
+    font-size: calc(0.6rem + 0.4vw);
+  }
+}
+
+.sub-heading-aside {
+  text-transform: uppercase;
+  color: $light-blue;
+  font-size: calc(0.5rem + 0.4vw);
+  font-weight: $font-weight-normal;
+  letter-spacing: 0.08rem;
+  margin-bottom: 0.6rem;
+
+  @media only screen and (max-width: $bp-1000) {
+    font-size: calc(0.4rem + 0.4vw);
+  }
+}
+
+.paragraph {
+  color: $cool-gray;
+  font-family: inherit;
+  font-weight: $font-weight-normal;
+  font-size: calc(0.7rem + 0.8vw);
+}
+
+.aside-number {
+  width: 3.7rem;
+  height: 3.7rem;
+  border: 1.3px solid $white;
+  border-radius: 50%;
+  color: $white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  font-weight: $font-weight-bold;
+  font-size: 1.6rem;
+  cursor: pointer;
+
+  @media only screen and (max-width: $bp-1000) {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.4rem;
+  }
+}
+
+.aside__step--active > .aside-number {
+  background-color: $light-blue;
+  color: $marine-blue;
+  border: 1.3px solid $light-blue;
+}

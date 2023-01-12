@@ -1,0 +1,28 @@
+@import "variables";
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $alabaster;
+  height: 100vh;
+  padding-block: 10rem;
+
+  display: grid;
+  grid-template-columns: minmax(5rem, 15%) 1fr minmax(5rem, 15%);
+  align-content: center;
+
+  @media only screen and (max-width: $bp-600) {
+    grid-template-columns: minmax(2rem, 6%) 1fr minmax(2rem, 6%);
+    padding-block: 0rem;
+  }
+}

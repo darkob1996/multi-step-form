@@ -1,0 +1,15 @@
+{
+  "name": "multi-step-form",
+  "version": "1.0.0",
+  "description": "![Design preview for the Multi-step form coding challenge](./design/desktop-preview.jpg)",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "author": "darko boljanovic",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.8.2",
+    "parcel": "^2.8.2"
+  }
+}

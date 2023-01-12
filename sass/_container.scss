@@ -1,0 +1,229 @@
+@import "variables";
+
+.container {
+  grid-column: 2 / 3;
+  background-color: $white;
+  padding: 1.5rem;
+  border-radius: 0.8rem;
+
+  display: grid;
+  grid-template-columns: 30% 70%;
+  grid-template-rows: 1fr min-content;
+  height: 80vh;
+
+  @media only screen and (max-width: $bp-1000) {
+    grid-template-columns: 33% 67%;
+  }
+
+  @media only screen and (max-width: $bp-800) {
+    grid-template-columns: 35% 65%;
+  }
+
+  @media only screen and (max-width: $bp-600) {
+    grid-template-columns: 1fr;
+    height: 70vh;
+  }
+
+  @media only screen and (max-width: $bp-375) {
+    grid-template-columns: 1fr;
+    height: 75vh;
+  }
+}
+
+.aside {
+  grid-column: 1 / 2;
+  grid-row: 1 / -1;
+  background-image: url("../assets/images/bg-sidebar-desktop.svg");
+  border-radius: 0.8rem;
+  background-size: cover;
+  background-position: center;
+  padding: 4rem 3rem;
+  display: grid;
+  align-content: start;
+  grid-row-gap: 3rem;
+
+  @media only screen and (max-width: $bp-1000) {
+    padding: 4rem 2.5rem;
+  }
+
+  @media only screen and (max-width: $bp-800) {
+    padding: 4rem 2rem;
+  }
+
+  @media only screen and (max-width: $bp-600) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 20rem;
+    z-index: -1;
+    background-image: url("../assets/images/bg-sidebar-mobile.svg");
+    grid-template-columns: repeat(4, min-content);
+    gap: 1rem;
+    justify-content: center;
+    justify-items: center;
+  }
+
+  &__step {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    align-content: center;
+    align-items: center;
+    grid-column-gap: 1.5rem;
+
+    &--1 {
+    }
+
+    &--2 {
+    }
+
+    &--3 {
+    }
+
+    &--4 {
+    }
+  }
+
+  &__info {
+    @media only screen and (max-width: $bp-600) {
+      display: none;
+    }
+  }
+}
+
+.main__content {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  position: relative;
+  overflow: hidden;
+
+  @media only screen and (max-width: $bp-600) {
+    grid-column: 1 / -1;
+  }
+
+  &--item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 3rem 8rem 2rem 8rem;
+    transition: all 0.3s;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row-gap: 1.5rem;
+
+    @media only screen and (max-width: $bp-1000) {
+      padding: 3rem 3rem 2rem 3rem;
+    }
+  }
+}
+
+.main__buttons {
+  padding: 2rem 8rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  grid-column: 2 / 3;
+
+  @media only screen and (max-width: $bp-1000) {
+    padding: 2rem 3rem;
+  }
+
+  @media only screen and (max-width: $bp-600) {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: $white;
+    width: 100%;
+    padding-inline: 4rem;
+  }
+}
+
+.options {
+  &__container {
+    display: flex;
+    gap: 2rem;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+
+    @media only screen and (max-width: $bp-800) {
+      gap: 0.5rem;
+    }
+
+    @media only screen and (max-width: $bp-600) {
+      flex-direction: column;
+    }
+  }
+
+  &__plan {
+    background-color: $alabaster;
+    padding-block: 2rem;
+    border-radius: 0.8rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    &--monthly {
+      font-weight: $font-weight-extra-bold;
+      color: $cool-gray;
+
+      @media only screen and (max-width: $bp-800) {
+        font-size: 1.5rem;
+      }
+    }
+
+    &--yearly {
+      font-weight: $font-weight-extra-bold;
+      color: $cool-gray;
+
+      @media only screen and (max-width: $bp-800) {
+        font-size: 1.5rem;
+      }
+    }
+
+    &--active {
+      color: $marine-blue !important;
+    }
+
+    &--toggle {
+      position: relative;
+      width: 4rem;
+      height: 2.3rem;
+      border-radius: 5rem;
+      background-color: $marine-blue;
+      cursor: pointer;
+
+      &::after {
+        content: "";
+        display: block;
+        width: 1.6rem;
+        height: 1.6rem;
+        background-color: $white;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 0.3rem;
+        transform: translateY(-50%);
+        transition: all 0.3s;
+      }
+    }
+
+    &--toggle-yearly::after {
+      transform: translate(1.8rem, -0.8rem);
+    }
+  }
+}
+
+.add-ons {
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row-gap: 2rem;
+    margin-top: 3rem;
+  }
+}
